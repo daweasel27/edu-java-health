@@ -10,11 +10,15 @@ pipeline {
             }
         }
 		stage('artifact') {
-		  archive 'target/*.war'
+			steps {
+				archive 'target/*.war'
+            }
 	   }
 	   stage ('deploy') {
+		steps {
 			echo 'deployment started'
 			sh 'cp /var/lib/jenkins/workspace/PipelineHealth/target/health.war /opt/tomcat/webapps/'
+            }
 	   }
     }
 
