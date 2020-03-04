@@ -16,6 +16,6 @@ pipeline {
    }
    stage ('deploy'){
 		echo 'deployment started'
-         sudo mv /var/lib/jenkins/workspace/PipelineHealth/target/health.war /opt/tomcat/webapps/
+        sh 'cp /var/lib/jenkins/workspace/PipelineHealth/target/health.war /opt/tomcat/webapps/'
    }
 }
