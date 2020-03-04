@@ -1,18 +1,17 @@
 pipeline {
+    agent any
+    tools {
+        maven 'M3'
+    }
     stages {
-        stage('Build') { 
+        stage('Checkout') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                git 'https://github.com/daweasel27/edu-java-health'
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh 'mvn -B -DskipTests install'
+                sh 'mvn -B package'
             }
         }
     }
