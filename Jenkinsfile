@@ -16,7 +16,7 @@ pipeline {
 	   }
 	   stage ('deploy') {
 		steps {
-			echo 'deployment starte1d'
+			echo 'deployment starte1d1'
 			sh 'sudo cp /var/lib/jenkins/workspace/PipelineHealth/target/health.war /opt/tomcat9/webapps'
             }
 	   }
