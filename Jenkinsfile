@@ -16,8 +16,7 @@ pipeline {
 	   }
 	   stage ('deploy') {
 		steps {
-			echo 'deployment started'
-			sh 'sudo cp /var/lib/jenkins/workspace/PipelineHealth/target/health.war /home/portodeloitte/Desktop/tomcat/webapps/'
+			sh 'mvn tomcat8:deploy'
             }
 	   }
     }
